@@ -26,3 +26,10 @@ for (let i = 0; i < navbarLinks.length; i++) {
     navToggleBtn.classList.toggle("active");
   });
 }
+/**scroll efect with scroll buttons */
+const portfolioList = document.querySelector('.portfolio-list');
+
+function scrollPortfolio(direction) {
+  const scrollAmount = 300; 
+  portfolioList.scrollLeft += direction * scrollAmount;
+}
