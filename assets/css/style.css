@@ -620,7 +620,59 @@ textarea.contact-input {
 .blog-card .card-title a:is(:hover, :focus) { color: var(--orange-soda); }
 
 
+/************************************\
+#blog
+\************************************/
+.blog-section{
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+}
+.blog-post{
+  margin:5px;
+  display:grid;
+  align-items: center;
+  width:60%;
+}
+.blog-post img{
+  width:100%;
+  height:300px;
+}
+.recent-blog{
+  background-color: #fff;
+  width:35%;
+  height:95%;
+}
+.recent-blog img{
+  width:40%;
+  margin: 20px;
+  border-radius:30px;
+}
+.blog-desc{
+  display: grid;
+}
+.blog-rt{
+  display:flex;
+  align-items: center;
+}
+.blog-t{
+  color:black;
+  font-family: var(--ff-barlow);
+  font-weight: 600;
+  font-size:20px;
+}
+.blog-st{
+  color:var(--klein-blue);
+  font-family:var(--ff-poppins);
+  font-weight:300;
+  font-size:10px;
+}
+.blog-sd{
+  color:#2c0902;
+  font-size:12px;
 
+}
 
 
 /*-----------------------------------*\
