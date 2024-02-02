@@ -37,3 +37,53 @@ function moveSlider() {
 bullets.forEach((bullet) => {
   bullet.addEventListener("click", moveSlider);
 });
+
+/***Authentication */
+
+
+const isAuthenticated = localStorage.getItem('authenticated');
+
+// Function to handle login
+function handleLogin(username, password) {
+  if (username === 'user' && password === 'password') {
+    // Set authentication status to true
+    localStorage.setItem('authenticated', 'true');
+    // Redirect to the dashboard
+    window.location.href = 'Dashboard.html';
+  } else {
+    alert('Authentication failed. Check your credentials.');
+  }
+}
+
+// Function to handle registration
+function handleRegistration(username, email, password) {
+  localStorage.setItem('username', username);
+  localStorage.setItem('email', email);
+  localStorage.setItem('password', password);
+
+  alert('Registration was successful');
+  
+  window.location.href = 'dashboard.html';
+}
+
+// Event listener for the login form
+document.querySelector('.sign-in-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const username = this.querySelector('input[type="text"]').value;
+  const password = this.querySelector('input[type="password"]').value;
+  handleLogin(username, password);
+});
+
+// Event listener for the registration form
+document.querySelector('.sign-up-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const username = this.querySelector('input[type="text"]').value;
+  const email = this.querySelector('input[type="email"]').value;
+  const password = this.querySelector('input[type="password"]').value;
+  handleRegistration(username, email, password);
+});
+
+// Redirect to dashboard if already authenticated
+if (isAuthenticated === 'true') {
+  window.location.href = 'auth.html';
+}
