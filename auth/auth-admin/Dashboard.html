@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" />
 	<title>Cyiza-Chris-admin</title>
 </head>
-<body>
+<body onload="readAll()">
 	
 	<!-- SIDEBAR -->
 	<section id="sidebar">
@@ -77,15 +77,16 @@
 			</div>
 		</nav>
 		<!-- NAVBAR -->
-
 		<!-- MAIN -->
 		<main>
+			         
 			<h1 class="title">Welcome Back Cyiza</h1>
 			<ul class="breadcrumbs">
 				<li><a href="#">Home</a></li>
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Dashboard</a></li>
 			</ul>
+			<!--
 			<div class="info-data">
 				<div class="C-1">
 					<div class="card">
@@ -138,117 +139,37 @@
 					<span class="label">80%</span>
 				</div>
 			</div>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Add New Blog</h3>
-					</div>
-					<div class="chart">
-						<div class="add">
-							<div>
-								<input type="text" placeholder="Enter title">
-							</div>
-							<div>
-								<textarea name="" id="" cols="30" rows="10">Enter content of Blog</textarea>
-							</div>
-					         <div class="btn">
-								<button type="button" class="btn-up">Upload Image</button>
-								<button class="btn-sub">POST</button>
-							 </div>
-						
-						</div>
+			--->
+			</div class="for_crud">
+			   <div class="form_container">
+				<p>Add blog</p>
+				<form action="" class="create_form">
+                   <input type="text"  class="title">
+				    <textarea name="" id="" cols="30" rows="10" class="content_blog"></textarea>
+					<button type="button" onclick="add()">Create</button>
+				</form>
+				<form action=" " class="update_form">
+					<p>Update Blog</p>
+					<input type="text" hidden class="id" >
+					<input type="text"  class="utitle">
+				    <textarea name="" id="" cols="30" rows="10" class="ucontent_blog"></textarea>
+					<button type="button" onclick="update()">Update</button>
+				</form>
+				<div class="add_div">
+					<button onclick="create()">Add+</button>
+				</div>
 
-					</div>
-				</div>
-				<div class="content-data">
-				    <div class="blogs">
-						<div class="blog-summary">
-							<div class="blog-name">
-                                       <p>AI revolution</p>
-							</div>
-							<div class="blog-descrption">
-								This is the Turn around in Tech
-							</div>
-							<div class="blog-picture">
-                                 <img src="/assets/images/portfolio-1.jpg" alt="">
-							</div>
-							<div class="blog-actions">
-								<div class="actions-buttons">
-									<button id="update">Update</button>
-									<button id="delete">Delete</button>
-								</div>
-							</div>
-						</div>
-						<div class="blog-summary">
-							<div class="blog-name">
-                                       <p>AI revolution</p>
-							</div>
-							<div class="blog-descrption">
-								This is the Turn around in Tech
-							</div>
-							<div class="blog-picture">
-                                 <img src="/assets/images/blog-2.jpg" alt="">
-							</div>
-							<div class="blog-actions">
-								<div class="actions-buttons">
-									<button id="update">Update</button>
-									<button id="delete">Delete</button>
-								</div>
-							</div>
-						</div>
-						<div class="blog-summary">
-							<div class="blog-name">
-                                       <p>AI revolution</p>
-							</div>
-							<div class="blog-descrption">
-								This is the Turn around in Tech
-							</div>
-							<div class="blog-picture">
-                                 <img src="/assets/images/girl.jpg" alt="">
-							</div>
-							<div class="blog-actions">
-								<div class="actions-buttons">
-									<button id="update">Update</button>
-									<button id="delete">Delete</button>
-								</div>
-							</div>
-						</div>
-						<div class="blog-summary">
-							<div class="blog-name">
-                                       <p>AI revolution</p>
-							</div>
-							<div class="blog-descrption">
-								This is the Turn around in Tech
-							</div>
-							<div class="blog-picture">
-                                 <img src="/assets/images/boy.jpg" alt="">
-							</div>
-							<div class="blog-actions">
-								<div class="actions-buttons">
-									<button id="update">Update</button>
-									<button id="delete">Delete</button>
-								</div>
-							</div>
-						</div>
-						<div class="blog-summary">
-							<div class="blog-name">
-                                       <p>AI revolution</p>
-							</div>
-							<div class="blog-descrption">
-								This is the Turn around in Tech
-							</div>
-							<div class="blog-picture">
-                                 <img src="/assets/images/blog-3.jpg" alt="">
-							</div>
-							<div class="blog-actions">
-								<div class="actions-buttons">
-									<button id="update">Update</button>
-									<button id="delete">Delete</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<table>
+                        <thead>
+							<th>Title</th>
+							<th>Content</th>
+							<th>Action</th>
+						</thead>   
+						<tbody class="data_table">
+
+						</tbody>  
+				</table>
+			   </div>
 					
 			</div>
 		</main>

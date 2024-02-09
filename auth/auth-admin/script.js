@@ -28,7 +28,7 @@ allDropdown.forEach(item=> {
 function logout() {
 	// Clearing user credentials from local storage
 	localStorage.removeItem('username'); 
-	window.location.href = '/index.html'; 
+	window.location.href = './index.html'; 
   
   
   const logoutLink = document.getElementById('logoutLink'); // Adjusting the ID
@@ -38,7 +38,7 @@ function logout() {
 	  logout(); 
 	});
   }
-  
+}
 
 
 
@@ -174,3 +174,75 @@ const allProgress = document.querySelectorAll('main .card .progress');
 allProgress.forEach(item=> {
 	item.style.setProperty('--value', item.dataset.value)
 })
+
+//blog crud
+let data=[
+	{id:1, title:"Ai revolution",content_blog:"We love ai"},
+	{id:1, title:"Ai revolution",content_blog:"We love ai"}
+]
+
+function readAll(){
+	localStorage.setItem("object",JSON.stringify(data));
+	var tabledata = document.querySelector(".data_table");
+
+	var object = localStorage.getItem('object');
+	var objectdata = JSON.parse(object);
+	var elements = "";
+
+	objectdata.map(record =>{
+		elements += `<tr>
+			<td>${record.title}</td>
+			<td>${record.content_blog}</td>
+			<td>
+				<button class="edit" onclick={edit(${record.id})}>Edit</button>
+				<button class="delete" onclick={delet(${record.id})}>Delete</button>
+			</td>
+		</tr>`
+	})
+	tabledata.innerHTML = elements;
+}
+
+
+function delet(id){
+	data = data.filter(rec => rec.id !== id);
+	readAll();
+}
+function create(){
+document.querySelector(".create_form").style.display = "grid";
+document.querySelector(".add_div").style.display="none";
+
+
+}
+
+function add(){
+	var title = document.querySelector(".title").value;
+	var content_blog = document.querySelector(".content_blog").value;
+
+	var newObj = {id:3, title:title, content_blog:content_blog};
+	data.push(newObj);
+
+	document.querySelector(".create_form").style.display = "none";
+    document.querySelector(".add_div").style.display="grid";
+
+	readAll();
+}
+
+function edit(id){
+	document.querySelector('.update_form').style.display = "grid";
+	var  obj = data.find( rec => rec.id === id);
+	document.querySelector('.utitle').value = obj.title;
+	document.querySelector('.ucontent_blog').value = obj.content_blog;
+	document.querySelector('.id').value = obj.id;
+}
+
+function update(){
+	var id = parseInt(document.querySelector('.id').value);
+	var title = document.querySelector('.utitle').value;
+	var content_blog = document.querySelector('.ucontent_blog').value;
+
+    var index = data.findIndex(rec => rec.id === id);
+	data[index] = {id, title, content_blog};
+
+	document.querySelector('.update_form').style.display = "none";
+	readAll();
+}

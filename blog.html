@@ -15,33 +15,7 @@
             </div>
               <div class="blog-body">
                 <p>
-                    Artificial intelligence (AI) is the intelligence of machines or software, as opposed to the intelligence of humans or other animals. It is a field of study in computer science that develops and studies intelligent machines. Such machines may be called AIs.
-
-AI technology is widely used throughout industry, government, and science. Some high-profile applications are: advanced web search engines (e.g., Google Search), recommendation systems (used by YouTube, Amazon, and Netflix), understanding human speech (such as Google Assistant, Siri, and Alexa), self-driving cars (e.g., Waymo), generative and creative tools (ChatGPT and AI art), and superhuman play and analysis in strategy games (such as chess and Go).[1]
-
-Alan Turing was the first person to conduct substantial research in the field that he called Machine Intelligence.[2] Artificial intelligence was founded as an academic discipline in 1956.[3] The field went through multiple cycles of optimism[4][5] followed by disappointment and loss of funding.[6][7] Funding and interest vastly increased after 2012 when deep learning surpassed all previous AI techniques,[8] and after 2017 with the transformer architecture.[9] This led to the AI spring of the early 2020s, with companies, universities, and laboratories overwhelmingly based in the United States pioneering significant advances in artificial intelligence.[10]
-
-The various sub-fields of AI research are centered around particular goals and the use of particular tools. The traditional goals of AI research include reasoning, knowledge representation, planning, learning, natural language processing, perception, and support for robotics.[a] General intelligence (the ability to complete any task performable by a human) is among the field's long-term goals.[11]
-
-To solve these problems, AI researchers have adapted and integrated a wide range of problem-solving techniques, including search and mathematical optimization, formal logic, artificial neural networks, and methods based on statistics, operations research, and economics.[b] AI also draws upon psychology, linguistics, philosophy, neuroscience and other fields.[12]
-
-Goals
-The general problem of simulating (or creating) intelligence has been broken into sub-problems. These consist of particular traits or capabilities that researchers expect an intelligent system to display. The traits described below have received the most attention and cover the scope of AI research.[a]
-
-Reasoning, problem-solving
-Early researchers developed algorithms that imitated step-by-step reasoning that humans use when they solve puzzles or make logical deductions.[13] By the late 1980s and 1990s, methods were developed for dealing with uncertain or incomplete information, employing concepts from probability and economics.[14]
-
-Many of these algorithms are insufficient for solving large reasoning problems because they experience a "combinatorial explosion": they became exponentially slower as the problems grew larger.[15] Even humans rarely use the step-by-step deduction that early AI research could model. They solve most of their problems using fast, intuitive judgments.[16] Accurate and efficient reasoning is an unsolved problem.
-
-Knowledge representation
-
-An ontology represents knowledge as a set of concepts within a domain and the relationships between those concepts.
-Knowledge representation and knowledge engineering[17] allow AI programs to answer questions intelligently and make deductions about real-world facts. Formal knowledge representations are used in content-based indexing and retrieval,[18] scene interpretation,[19] clinical decision support,[20] knowledge discovery (mining "interesting" and actionable inferences from large databases),[21] and other areas.[22]
-
-A knowledge base is a body of knowledge represented in a form that can be used by a program. An ontology is the set of objects, relations, concepts, and properties used by a particular domain of knowledge.[23] Knowledge bases need to represent things such as: objects, properties, categories and relations between objects;[24] situations, events, states and time;[25] causes and effects;[26] knowledge about knowledge (what we know about what other people know);[27] default reasoning (things that humans assume are true until they are told differently and will remain true even when other facts are changing);[28] and many other aspects and domains of knowledge.
-
-Among the most difficult problems in knowledge representation are: the breadth of commonsense knowledge (the set of atomic facts that the average person knows is enormous);[29] and the sub-symbolic form of most commonsense knowledge (much of what people know is not represented as "facts" or "statements" that they could express verbally).[16] There is also the difficulty of knowledge acquisition, the problem of obtaining knowledge for AI applications.[c]
-                </p>
+                    </p>
               </div>
               <div class="comment">
                 <textarea name="comment" id="" cols="30" rows="8"></textarea>
@@ -135,4 +109,42 @@ Among the most difficult problems in knowledge representation are: the breadth o
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            renderBlogPosts();
+        });
+
+        function renderBlogPosts() {
+            const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+            const blogSection = document.querySelector('.blog-section');
+            blogSection.innerHTML = ''; // Clear previous content
+
+            blogPosts.forEach(blogPost => {
+                const blogDiv = document.createElement('div');
+                blogDiv.classList.add('blog-post');
+
+                // Add title
+                const titleDiv = document.createElement('div');
+                titleDiv.classList.add('post-title');
+                titleDiv.innerHTML = `<h1>${blogPost.title}</h1>`;
+                blogDiv.appendChild(titleDiv);
+
+                // Add content
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('blog-body');
+                contentDiv.innerHTML = `<p>${blogPost.content}</p>`;
+                blogDiv.appendChild(contentDiv);
+
+                // Add comment textarea
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerHTML = `<textarea name="comment" cols="30" rows="8"></textarea>`;
+                blogDiv.appendChild(commentDiv);
+
+                // Append the blog post to the blog section
+                blogSection.appendChild(blogDiv);
+            });
+        }
+</script>
 </html>

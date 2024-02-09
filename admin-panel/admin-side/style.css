@@ -581,90 +581,116 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
-.add{
+table{
+	width:1500px;
+}
+.create_form{
 	display:grid;
-}
-.add input{
-	border-radius: 30px;
-	width:100%;
-    height: 50px;
-}
-.add textarea{
-	margin-top: 20px;
-	width:100%;
-	height:80%;
-	border-radius:30px ;
-	border-top-left-radius: 5px;
-}
-.add button{
-	border:none;
-	align-content:stretch;
-	width:70px;
-	height:40px;
-
-}
-.btn{
-	display: flex;
-	justify-content: space-between;
-}
-.btn-sub{
-	background-color:var(--blue);
-	color:var(--light);
-	border-radius: 30px;
-
-}
-.btn-sub:hover{
-	background-color:var(--dark-blue);
-	color:var(--light);
-	border-radius: 30px;
-
-}
-.btn-up{
-	background-color: var(--dark-grey);
-	color:#fff;
-	width:200px;
-	border-radius:5px;
-}
-.content-data{
-	display: grid;
 	
 }
-.blog-summary{
-	display:flex;
-	justify-content:space-between
+.create_form input{
+	align-items: center;
+	border-radius:20px;
+	border:4px;
 }
-.blog-picture{
-	display:flex;
-	width:10px;
-	padding:2px;
-	height:60px;
+.create_form textarea{
+	align-items: center;
+	border-radius: 15px;
 }
-.blog-picture img{
+.create_form button{
+         width:75px;
+		 height: 30px;
+		 border-radius:10px;
+		 color:#E3FFCB;
+		 background-color: #18355b;
+		 border:none;
+}
+.create_form button:hover{
+	width:75px;
+	height: 30px;
 	border-radius:10px;
-}
-.blog-actions button{
-	width:70px;
-	height:50px;
-	border-radius:15px;
-	border-bottom-left-radius:5px;
+	color:#E3FFCB;
+	background-color: #060606;
 	border:none;
 }
-#update{
-	background-color:#8ffc30;
+.update_form{
+	display:grid;
 }
-#update:hover{
-	background-color:#18355b;
-	color:#fff;
+.update_form input{
+	align-items: center;
+	border-radius:20px;
+	height:45px;
+	border:4px;
+	padding:10px;
 }
-#delete{
-	background-color: #FC3B56;
+.update_form textarea{
+	align-items: center;
+	border-radius: 15px;
+}
+.update_form button{
+         width:75px;
+		 height: 30px;
+		 border-radius:10px;
+		 color:#ffffff;
+		 background-color: #013f20;
+		 border:none;
+}
+.update_form button:hover{
+	width:75px;
+	height: 30px;
+	border-radius:10px;
+	color:#0f0f0f;
+	background-color: #d7be00;
+	border:none;
+}
+.add_div button{
+	height: 30px;
+	width:75px;
+	color:#D0E4FF;
+	background-color: #d85a00;
+	border:none;
+	border-radius:20px;
+}
+.add_div button:hover{
+	height: 30px;
+	width:75px;
+	color:#D0E4FF;
+	background-color: #006c6a;
+	border:none;
+	border-radius:20px;
+}
+.create_form, .update_form{
+	display:none;
+}
+table button{
+	align-items:center;
+	width:100px;
+	height:30px;
+	border-radius:10px;
+	border:none;
+}
+table .edit{
+	background-color:rgb(118, 0, 222);
+	border-bottom-right-radius: 2px;
+	color:#D0E4FF;
+}
+table .edit:hover{
+	background-color:rgb(0, 217, 255);
+	border-bottom-right-radius: 2px;
+	color:#0e0e0e;
+}
+table .delete{
+	background-color:#FC3B56;
 	color:#E3FFCB;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 2px;
 }
-#delete:hover{
-	background-color:crimson;
-	color:#fff;
-	border-top-right-radius: 5px;
+table .delete:hover{
+	background-color:#050605;
+	color:#E3FFCB;
+	border-top-left-radius: 2px;
+}
+.info-data{
+	display:none;
 }
 
 /* MAIN */
